@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+tr, td {
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  background-color: var(--Changeable-Color--);
+  background-image: var(--Changeable-img--);
+}
