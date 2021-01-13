@@ -1,12 +1,3 @@
-import React, {Component} from 'react'
+const TableCell = props => <td {...props} ></td>
 
-export default class TableCell extends Component{
-    render()
-    {
-        return(
-            <td key={this.props}>
-                    
-            </td>
-        );
-    }
-}
+export default TableCell

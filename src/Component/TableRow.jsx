@@ -1,13 +1,9 @@
-import React, {Component} from 'react'
-import TableCell from './TableCell';
+import TableCell from './TableCell'
 
-export default class TableRow extends Component{
-    render()
-    {
-      return(
-        <tr>
-        <TableCell></TableCell>
-        </tr>
-      );
-    }
-}
+const TableRow = ({ row, rowIndex, click }) => (
+    <tr>
+        { row.map(({ color }, columnIndex) => <TableCell bgcolor={color} key={`${rowIndex}${columnIndex}`} onClick={() => click(rowIndex, columnIndex)} />)}
+    </tr>
+)
+
+export default TableRow
