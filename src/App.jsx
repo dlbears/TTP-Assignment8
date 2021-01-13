@@ -1,3 +1,4 @@
+
 import {Component} from 'react'
 import Table from './Component/Table'
 import './App.css';
@@ -74,6 +75,7 @@ class App extends Component {
       </div>
     )
   }
+
 }
 
 export default App;
