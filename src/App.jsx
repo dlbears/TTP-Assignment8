@@ -1,31 +1,28 @@
 
 import {Component} from 'react'
+import Table from './Component/Table'
 import './App.css';
 
-const Table = props => { //Replace me with Table import
-  console.log(props.table)
-
-  return <div></div>
-}
+const colors = ['Red', 'Green', 'Blue']
 
 const buttons = {
   'Add Column': ({ table, color }) => ({ 
     table: table.length === 0 
         ? [ [ { color } ] ] 
         : table.map(row => ([...row, { color }]))
-  }),//(state) => {},
+  }),
   'Add Row': ({ table, color }) => ({
     table: table.length === 0
         ? [ [ { color } ] ]
         :  table.concat([ table[0].map(_ => ({ color })) ]) 
   }),
   'Remove Column': ({ table }) => ({
-    table: (table?.[0]?.length ?? 1) === 1  
+    table: table.length < 1 || table[0].length <= 1 
         ? []
         : table.map(row => row.slice(0, row.length - 1))
   }),
   'Remove Row': ({ table }) => ({
-    table: table.length <= 1
+    table: table.length < 1
         ? []
         : table.slice(0, table.length - 1)
   }),
@@ -52,10 +49,10 @@ class App extends Component {
     this.handleCellClick = this.handleCellClick.bind(this)
   }
 
-  handleCellClick(row, column) {  //zero-indexed
-    this.setState({ 
-      table: this.state.table.map((r, i) => i !== row ? r : r.map((c, k) => k !== column ? c : ({ color: this.state.color })))
-    })
+  handleCellClick(row, column) {
+    this.setState(({ table, color }) => ({ 
+      table: table.map((r, i) => i !== row ? r : r.map((c, k) => k !== column ? c : ({ color })))
+    }))
   }
 
   handleButton(e) {
@@ -67,18 +64,16 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state)
     return (
-    <div>
-      { Object.keys(buttons).map(text => <button onClick={this.handleButton} key={text} name={text}>{text}</button>) }
-      <select name="Select Color" value={this.state.color} onChange={this.handleSelect}>
-        <option value="">Select</option>
-        <option value="red">Red</option>
-        <option value="green">Green</option>
-        <option value="blue">Blue</option>
-      </select>
-      <Table table={this.state.table} onCellClick={this.handleCellClick} />
-    </div>)
+      <div>
+        { Object.keys(buttons).map(text => <button onClick={this.handleButton} key={text} name={text}>{text}</button>) }
+        <select name="Select Color" value={this.state.color} onChange={this.handleSelect}>
+          <option value="">Select</option>
+          { colors.map(color => <option value={color.toLowerCase()} key={color}>{color}</option>)}
+        </select>
+        <Table table={this.state.table} onCellClick={this.handleCellClick} />
+      </div>
+    )
   }
 
 }
