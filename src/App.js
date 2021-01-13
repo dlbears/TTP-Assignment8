@@ -1,3 +1,4 @@
+
 import {Component} from 'react'
 import './App.css';
 
@@ -79,6 +80,7 @@ class App extends Component {
       <Table table={this.state.table} onCellClick={this.handleCellClick} />
     </div>)
   }
+
 }
 
 export default App;
