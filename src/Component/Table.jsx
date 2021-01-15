@@ -1,20 +1,9 @@
-import React, {Component} from 'react'
-import TableRow from './TableRow';
+import TableRow from './TableRow'
 
+const Table = ({ table, onCellClick }) => (
+    <table>
+        { table.map((row, index) => <TableRow click={onCellClick} key={index} rowIndex={index} row={row} />) }
+    </table>
+)
 
-export default class Table extends Component{
-    
-    render()
-    {
-        return(
-            <table className = "grid">
-                
-                {this.props.table.map((row) => {
-                    <TableRow someProp={row}/>
-                })}
-                
-            </table>
-            
-        );
-    }
-}
+export default Table
