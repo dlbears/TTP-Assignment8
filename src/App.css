@@ -44,3 +44,7 @@ tr, td {
   background-color: var(--Changeable-Color--);
   background-image: var(--Changeable-img--);
 }
+
+.table{
+  background-color: #61dafb;
+}

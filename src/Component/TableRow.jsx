@@ -6,7 +6,9 @@ export default class TableRow extends Component{
     {
       return(
         <tr>
-        <TableCell></TableCell>
+            {this.props.someProp.map((row) => {
+                     <TableCell someProp={row}/>
+                })}
         </tr>
       );
     }

@@ -1,12 +1,15 @@
 
 import {Component} from 'react'
 import './App.css';
+import Table from './Component/Table'
 
-const Table = props => { //Replace me with Table import
-  console.log(props.table)
+// const Table = props => { //Replace me with Table import
+//   console.log(props.table)
 
-  return <div></div>
-}
+//   return <div></div>
+// }
+
+
 
 const buttons = {
   'Add Column': ({ table, color }) => ({ 

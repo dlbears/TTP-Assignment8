@@ -4,9 +4,11 @@ export default class TableCell extends Component{
     render()
     {
         return(
-            <td key={this.props}>
-                    
-            </td>
+           <div>
+                {this.props.someProp.map(() => {
+                     <td></td>
+                })}
+           </div>
         );
     }
 }

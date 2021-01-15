@@ -3,12 +3,18 @@ import TableRow from './TableRow';
 
 
 export default class Table extends Component{
+    
     render()
     {
         return(
-            <table>
-            <TableRow></TableRow>
+            <table className = "grid">
+                
+                {this.props.table.map((row) => {
+                    <TableRow someProp={row}/>
+                })}
+                
             </table>
+            
         );
     }
 }
