@@ -48,3 +48,14 @@ tr, td {
 .table{
   background-color: #61dafb;
 }
+
+.optionContainer{
+  background-color: aquamarine;
+  height: 10vh;
+  text-align: center;
+}
+
+button{
+  padding: 1.5rem;
+  margin: 15px;
+}

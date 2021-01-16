@@ -3,13 +3,6 @@ import {Component} from 'react'
 import './App.css';
 import Table from './Component/Table'
 
-// const Table = props => { //Replace me with Table import
-//   console.log(props.table)
-
-//   return <div></div>
-// }
-
-
 
 const buttons = {
   'Add Column': ({ table, color }) => ({ 
@@ -67,12 +60,13 @@ class App extends Component {
 
   handleSelect(e) {
     this.setState({ color: e.target.value })
+    console.log(this.state.color)
   }
 
   render() {
     console.log(this.state)
     return (
-    <div>
+    <div className = "optionContainer">
       { Object.keys(buttons).map(text => <button onClick={this.handleButton} key={text} name={text}>{text}</button>) }
       <select name="Select Color" value={this.state.color} onChange={this.handleSelect}>
         <option value="">Select</option>
