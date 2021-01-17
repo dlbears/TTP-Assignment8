@@ -1,4 +1,3 @@
-
 import {Component} from 'react'
 import Table from './Component/Table'
 import './App.css';
@@ -69,13 +68,12 @@ class App extends Component {
         { Object.keys(buttons).map(text => <button onClick={this.handleButton} key={text} name={text}>{text}</button>) }
         <select name="Select Color" value={this.state.color} onChange={this.handleSelect}>
           <option value="">Select</option>
-          { colors.map(color => <option value={color.toLowerCase()} key={color}>{color}</option>)}
+          { colors.map(color => <option value={color.toLowerCase()} key={color}>{color}</option>) }
         </select>
         <Table table={this.state.table} onCellClick={this.handleCellClick} />
       </div>
     )
   }
-
 }
 
 export default App;
