@@ -60,6 +60,7 @@ class App extends Component {
 
   handleSelect(e) {
     this.setState({ color: e.target.value })
+    console.log(this.state.color)
   }
 
   render() {
